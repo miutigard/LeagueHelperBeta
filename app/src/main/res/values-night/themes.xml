@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LeagueHelper" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryNight</item>
+        <item name="colorPrimaryVariant">@color/primaryLightNight</item>
+        <item name="colorOnPrimary">@color/primaryTextNight</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryNight</item>
+        <item name="colorSecondaryVariant">@color/secondaryLightNight</item>
+        <item name="colorOnSecondary">@color/secondaryTextNight</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
