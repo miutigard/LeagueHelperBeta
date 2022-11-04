@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="no.mobilprog.leaguehelper.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_specificPatchNotesFragment"
+            app:destination="@id/specificPatchNotesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="no.mobilprog.leaguehelper.SearchFragment"
@@ -41,5 +45,18 @@
         <action
             android:id="@+id/action_specificChampionFragment_to_championFragment"
             app:destination="@id/championFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/specificPatchNotesFragment"
+        android:name="no.mobilprog.leaguehelper.specificPatchNotesFragment"
+        android:label="fragment_specific_patch_notes"
+        tools:layout="@layout/fragment_specific_patch_notes" >
+        <argument
+            android:name="patchNotesId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_specificPatchNotesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

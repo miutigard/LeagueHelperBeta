@@ -5,11 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import no.mobilprog.leaguehelper.adapter.ChampionsAdapter
 import no.mobilprog.leaguehelper.adapter.PatchNotesAdapter
 import no.mobilprog.leaguehelper.data.Datasource
+import no.mobilprog.leaguehelper.model.Champion
+import no.mobilprog.leaguehelper.model.PatchNotes
 
 class HomeFragment : Fragment() {
+
+    private val patchNotesList = PatchNotes.getPatchNotes()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,13 +29,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val myDataset = Datasource().loadPatchNotes()
+        val patchNotesRecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_patchnotes)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_patchnotes)
-        recyclerView.adapter = this.context?.let { PatchNotesAdapter(it, myDataset) }
+        patchNotesRecyclerView.adapter = PatchNotesAdapter(patchNotesList) {
+            val position = patchNotesRecyclerView.getChildAdapterPosition(it)
 
-        recyclerView.setHasFixedSize(true)
+            val clickedPatchNotes = patchNotesList[position]
 
+            val navController = this.findNavController()
+            val action = HomeFragmentDirections.actionHomeFragmentToSpecificPatchNotesFragment()
+
+            action.patchNotesId = clickedPatchNotes.patchNotesId
+
+            navController.navigate(action)
+        }
+
+        patchNotesRecyclerView.layoutManager = GridLayoutManager(context, 1)
     }
 
 
