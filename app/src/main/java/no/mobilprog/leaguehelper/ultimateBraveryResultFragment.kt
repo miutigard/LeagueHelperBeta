@@ -10,49 +10,48 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import no.mobilprog.leaguehelper.adapter.ItemAdapter
+import no.mobilprog.leaguehelper.adapter.ItemBraveryAdapter
 import no.mobilprog.leaguehelper.model.Champion
 import no.mobilprog.leaguehelper.model.Item
 
-class specificChampionFragment : Fragment() {
-    private val args: specificChampionFragmentArgs by navArgs()
-    private val championList = Champion.getChampions()
+class ultimateBraveryResultFragment : Fragment() {
+
     private val itemList = Item.getItems()
+    private val championList = Champion.getChampions()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_specific_champion, container, false)
+        return inflater.inflate(R.layout.fragment_ultimate_bravery_result, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val itemRecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_items_bravery_result)
         val backButton = view.findViewById<ImageButton>(R.id.imageButton)
-        val championNameTextView = view.findViewById<TextView>(R.id.championNameTextView)
-        val championImageImageView = view.findViewById<ImageView>(R.id.championImageView)
 
-        championNameTextView.text = championList[args.championId].championName
-        championImageImageView.setImageResource(championList[args.championId].championImage)
+        val championNameTextView = view.findViewById<TextView>(R.id.textViewUltimateChampName)
+        val championImageImageView = view.findViewById<ImageView>(R.id.imageViewUltimateBraveryResult)
+        val randomChamp = championList.random()
+
+        championNameTextView.text = randomChamp.championName
+        championImageImageView.setImageResource(randomChamp.championImage)
 
         backButton.setOnClickListener{
             val navController = it.findNavController()
-            val action = specificChampionFragmentDirections.actionSpecificChampionFragmentToChampionFragment()
+            val action = ultimateBraveryResultFragmentDirections.actionUltimateBraveryResultToUltimateFragment()
             navController.navigate(action)
         }
 
-        val itemRecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_items_bravery_result)
-
-        itemRecyclerView.adapter = ItemAdapter(itemList) {
+        itemRecyclerView.adapter = ItemBraveryAdapter(itemList) {
             val position = itemRecyclerView.getChildAdapterPosition(it)
-            val clickedItem = itemList[position]
-
-            Toast.makeText(view.context, clickedItem.itemName, Toast.LENGTH_SHORT).show()
+            val currentItem = itemList[position]
         }
 
         itemRecyclerView.layoutManager = GridLayoutManager(context, 6)

@@ -8,21 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
 import no.mobilprog.leaguehelper.R
 import no.mobilprog.leaguehelper.model.Item
 
-class ItemAdapter (
+class ItemBraveryAdapter (
     private val items: List<Item>,
     private val clickListener: View.OnClickListener
-) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<ItemBraveryAdapter.ItemBraveryViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemBraveryViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_items, parent, false)
 
-        return ItemViewHolder(itemView)
+        return ItemBraveryViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val currentItem = items[position]
+    private val itemsListRandomized = items.shuffled()
 
-        holder.bind(currentItem, clickListener)
+    override fun onBindViewHolder(holder: ItemBraveryViewHolder, position: Int) {
+        val randomItem = itemsListRandomized[position]
+
+        holder.bind(randomItem, clickListener)
     }
 
     private val limit: Int = 6
@@ -31,7 +33,7 @@ class ItemAdapter (
         return if (items.size > limit) 6 else items.size
     }
 
-    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ItemBraveryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val itemImageView: ImageView = view.findViewById(R.id.items_image)
 
         fun bind(item: Item, clickListener: View.OnClickListener) {
