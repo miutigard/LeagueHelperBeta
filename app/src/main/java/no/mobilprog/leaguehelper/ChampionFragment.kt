@@ -1,15 +1,17 @@
 package no.mobilprog.leaguehelper
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import no.mobilprog.leaguehelper.adapter.ChampionsAdapter
-import no.mobilprog.leaguehelper.data.Datasource
 import no.mobilprog.leaguehelper.model.Champion
 
 class ChampionFragment : Fragment() {
@@ -34,7 +36,12 @@ class ChampionFragment : Fragment() {
 
             val clickedChampion = championList[position]
 
-            Toast.makeText(view.context, clickedChampion.championName, Toast.LENGTH_SHORT).show()
+            val navController = this.findNavController()
+            val action = ChampionFragmentDirections.actionChampionFragmentToSpecificChampionFragment()
+
+            action.championId = clickedChampion.championId
+
+            navController.navigate(action)
         }
 
         championRecyclerView.layoutManager = GridLayoutManager(context, 3)

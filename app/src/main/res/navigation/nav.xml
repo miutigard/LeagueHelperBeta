@@ -19,10 +19,24 @@
         android:id="@+id/championFragment"
         android:name="no.mobilprog.leaguehelper.ChampionFragment"
         android:label="fragment_champion"
-        tools:layout="@layout/fragment_champion" />
+        tools:layout="@layout/fragment_champion" >
+        <action
+            android:id="@+id/action_championFragment_to_specificChampionFragment"
+            app:destination="@id/specificChampionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ultimateFragment"
         android:name="no.mobilprog.leaguehelper.UltimateFragment"
         android:label="fragment_ultimate"
         tools:layout="@layout/fragment_ultimate" />
+    <fragment
+        android:id="@+id/specificChampionFragment"
+        android:name="no.mobilprog.leaguehelper.specificChampionFragment"
+        android:label="fragment_specific_champion"
+        tools:layout="@layout/fragment_specific_champion" >
+        <argument
+            android:name="championId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>
