@@ -8,10 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import no.mobilprog.leaguehelper.adapter.ChampionsAdapter
 import no.mobilprog.leaguehelper.adapter.PatchNotesAdapter
-import no.mobilprog.leaguehelper.data.Datasource
-import no.mobilprog.leaguehelper.model.Champion
 import no.mobilprog.leaguehelper.model.PatchNotes
 
 class HomeFragment : Fragment() {

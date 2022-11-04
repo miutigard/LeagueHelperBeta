@@ -8,16 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import no.mobilprog.leaguehelper.adapter.ItemAdapter
 import no.mobilprog.leaguehelper.adapter.ItemBraveryAdapter
 import no.mobilprog.leaguehelper.model.Champion
 import no.mobilprog.leaguehelper.model.Item
 
-class ultimateBraveryResultFragment : Fragment() {
+class UltimateBraveryResultFragment : Fragment() {
 
     private val itemList = Item.getItems()
     private val championList = Champion.getChampions()
@@ -45,7 +43,7 @@ class ultimateBraveryResultFragment : Fragment() {
 
         backButton.setOnClickListener{
             val navController = it.findNavController()
-            val action = ultimateBraveryResultFragmentDirections.actionUltimateBraveryResultToUltimateFragment()
+            val action = UltimateBraveryResultFragmentDirections.actionUltimateBraveryResultToUltimateFragment()
             navController.navigate(action)
         }
 

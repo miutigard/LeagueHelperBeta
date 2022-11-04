@@ -39,33 +39,33 @@
     </fragment>
     <fragment
         android:id="@+id/specificChampionFragment"
-        android:name="no.mobilprog.leaguehelper.specificChampionFragment"
+        android:name="no.mobilprog.leaguehelper.SpecificChampionFragment"
         android:label="fragment_specific_champion"
         tools:layout="@layout/fragment_specific_champion" >
+        <action
+            android:id="@+id/action_specificChampionFragment_to_championFragment"
+            app:destination="@id/championFragment" />
         <argument
             android:name="championId"
             app:argType="integer"
             android:defaultValue="0" />
-        <action
-            android:id="@+id/action_specificChampionFragment_to_championFragment"
-            app:destination="@id/championFragment" />
     </fragment>
     <fragment
         android:id="@+id/specificPatchNotesFragment"
-        android:name="no.mobilprog.leaguehelper.specificPatchNotesFragment"
+        android:name="no.mobilprog.leaguehelper.SpecificPatchNotesFragment"
         android:label="fragment_specific_patch_notes"
         tools:layout="@layout/fragment_specific_patch_notes" >
+        <action
+            android:id="@+id/action_specificPatchNotesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
         <argument
             android:name="patchNotesId"
             app:argType="integer"
             android:defaultValue="0" />
-        <action
-            android:id="@+id/action_specificPatchNotesFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/ultimateBraveryResult"
-        android:name="no.mobilprog.leaguehelper.ultimateBraveryResultFragment"
+        android:name="no.mobilprog.leaguehelper.UltimateBraveryResultFragment"
         android:label="fragment_ultimate_bravery_result"
         tools:layout="@layout/fragment_ultimate_bravery_result" >
         <action

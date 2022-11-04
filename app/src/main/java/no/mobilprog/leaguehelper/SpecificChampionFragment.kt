@@ -17,8 +17,8 @@ import no.mobilprog.leaguehelper.adapter.ItemAdapter
 import no.mobilprog.leaguehelper.model.Champion
 import no.mobilprog.leaguehelper.model.Item
 
-class specificChampionFragment : Fragment() {
-    private val args: specificChampionFragmentArgs by navArgs()
+class SpecificChampionFragment : Fragment() {
+    private val args: SpecificChampionFragmentArgs by navArgs()
     private val championList = Champion.getChampions()
     private val itemList = Item.getItems()
 
@@ -42,7 +42,7 @@ class specificChampionFragment : Fragment() {
 
         backButton.setOnClickListener{
             val navController = it.findNavController()
-            val action = specificChampionFragmentDirections.actionSpecificChampionFragmentToChampionFragment()
+            val action = SpecificChampionFragmentDirections.actionSpecificChampionFragmentToChampionFragment()
             navController.navigate(action)
         }
 

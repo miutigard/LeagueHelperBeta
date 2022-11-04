@@ -8,20 +8,12 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import no.mobilprog.leaguehelper.adapter.ChampionsAdapter
-import no.mobilprog.leaguehelper.adapter.ItemAdapter
-import no.mobilprog.leaguehelper.adapter.PatchNotesAdapter
-import no.mobilprog.leaguehelper.model.Champion
 import no.mobilprog.leaguehelper.model.PatchNotes
 
-class specificPatchNotesFragment : Fragment() {
-    private val args: specificPatchNotesFragmentArgs by navArgs()
+class SpecificPatchNotesFragment : Fragment() {
+    private val args: SpecificPatchNotesFragmentArgs by navArgs()
     private val patchNotesList = PatchNotes.getPatchNotes()
 
     override fun onCreateView(
@@ -44,7 +36,7 @@ class specificPatchNotesFragment : Fragment() {
 
         backButton.setOnClickListener{
             val navController = it.findNavController()
-            val action = specificPatchNotesFragmentDirections.actionSpecificPatchNotesFragmentToHomeFragment()
+            val action = SpecificPatchNotesFragmentDirections.actionSpecificPatchNotesFragmentToHomeFragment()
             navController.navigate(action)
         }
     }
