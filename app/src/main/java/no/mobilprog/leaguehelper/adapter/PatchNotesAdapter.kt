@@ -37,11 +37,10 @@ class PatchNotesAdapter (
         private val patchNotesImageView: ImageView = view.findViewById(R.id.patchnotes_image)
 
         fun bind(item: PatchNotes, clickListener: View.OnClickListener) {
-            // Fills the views with the given data
+
             patchNotesImageView.setImageResource(item.patchNotesImage)
             patchNotesNameView.text = item.patchNotesName
 
-            // Sets the onClickListener
             itemView.setOnClickListener(clickListener)
         }
     }

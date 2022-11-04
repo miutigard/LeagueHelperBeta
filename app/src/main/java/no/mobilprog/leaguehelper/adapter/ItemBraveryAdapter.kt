@@ -37,12 +37,10 @@ class ItemBraveryAdapter (
         private val itemImageView: ImageView = view.findViewById(R.id.items_image)
 
         fun bind(item: Item, clickListener: View.OnClickListener) {
-            // Fills the views with the given data
 
             itemImageView.contentDescription = item.itemName
             itemImageView.setImageResource(item.itemImage)
 
-            // Sets the onClickListener
             itemView.setOnClickListener(clickListener)
         }
     }
