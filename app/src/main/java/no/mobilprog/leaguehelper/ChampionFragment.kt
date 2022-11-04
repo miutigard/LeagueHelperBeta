@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import no.mobilprog.leaguehelper.adapter.ChampionsAdapter
 import no.mobilprog.leaguehelper.data.Datasource
+import no.mobilprog.leaguehelper.model.Champion
 
 class ChampionFragment : Fragment() {
+
+    private val championList = Champion.getChampions()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,13 +27,17 @@ class ChampionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val myDataset = Datasource().loadChampions()
+        val championRecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_champions)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_champions)
-        recyclerView.adapter = this.context?.let { ChampionsAdapter(it, myDataset) }
+        championRecyclerView.adapter = ChampionsAdapter(championList) {
+            val position = championRecyclerView.getChildAdapterPosition(it)
 
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
+            val clickedChampion = championList[position]
 
+            Toast.makeText(view.context, clickedChampion.championName, Toast.LENGTH_SHORT).show()
+        }
+
+        championRecyclerView.layoutManager = GridLayoutManager(context, 3)
     }
 
 }

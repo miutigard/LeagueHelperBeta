@@ -10,6 +10,9 @@
     <string name="champions">Champions</string>
     <string name="ultimatebravery">Ultimate</string>
 
+    //Search
+    <string name="searchHint">Search summoner..</string>
+
     //Patches
     <string name="patchnotes2021">Patch 20.21 Notes</string>
     <string name="patchnotes2020">Patch 20.20 Notes</string>
