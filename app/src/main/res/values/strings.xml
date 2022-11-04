@@ -38,6 +38,9 @@
     <string name="xayah">Xayah</string>
     <string name="yuumi">Yuumi</string>
 
+    //Champions specific
+    <string name="recommended">Recommended build</string>
+
     //Ultimate bravery
     <string name="ultimatebraveryButton">I am brave</string>
 

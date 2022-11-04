@@ -30,4 +30,6 @@ class HomeFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
     }
+
+
 }

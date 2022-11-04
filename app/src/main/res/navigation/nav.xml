@@ -38,5 +38,8 @@
             android:name="championId"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_specificChampionFragment_to_championFragment"
+            app:destination="@id/championFragment" />
     </fragment>
 </navigation>

@@ -14,23 +14,17 @@ class MainActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.bottomNav
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
 
         navView.setupWithNavController(navController)
-
-        /*
-        val myDataset = Datasource().loadPatchNotes()
-
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
-
-        recyclerView.setHasFixedSize(true)
-        */
     }
 }
