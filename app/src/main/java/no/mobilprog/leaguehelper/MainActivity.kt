@@ -2,16 +2,9 @@ package no.mobilprog.leaguehelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.navigation.ActivityNavigator
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import no.mobilprog.leaguehelper.adapter.ItemAdapter
-import no.mobilprog.leaguehelper.data.Datasource
 import no.mobilprog.leaguehelper.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity()  {

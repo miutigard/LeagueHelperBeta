@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import no.mobilprog.leaguehelper.adapter.ItemAdapter
+import no.mobilprog.leaguehelper.adapter.PatchNotesAdapter
 import no.mobilprog.leaguehelper.data.Datasource
 
 class HomeFragment : Fragment() {
@@ -24,8 +24,8 @@ class HomeFragment : Fragment() {
 
         val myDataset = Datasource().loadPatchNotes()
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = this.context?.let { ItemAdapter(it, myDataset) }
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_patchnotes)
+        recyclerView.adapter = this.context?.let { PatchNotesAdapter(it, myDataset) }
 
         recyclerView.setHasFixedSize(true)
 

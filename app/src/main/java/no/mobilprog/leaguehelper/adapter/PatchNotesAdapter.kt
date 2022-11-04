@@ -10,14 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import no.mobilprog.leaguehelper.R
 import no.mobilprog.leaguehelper.model.PatchNotes
 
-class ItemAdapter(
+class PatchNotesAdapter(
     private val context: Context,
     private val dataset: List<PatchNotes>
-    ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+    ) : RecyclerView.Adapter<PatchNotesAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
+            .inflate(R.layout.list_patchnotes, parent, false)
 
         return ItemViewHolder(adapterLayout)
     }
@@ -31,7 +31,7 @@ class ItemAdapter(
     override fun getItemCount() = dataset.size
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.item_title)
-        val imageView: ImageView = view.findViewById(R.id.item_image)
+        val textView: TextView = view.findViewById(R.id.patchnotes_title)
+        val imageView: ImageView = view.findViewById(R.id.patchnotes_image)
     }
 }

@@ -15,6 +15,29 @@
     <string name="patchnotes2020">Patch 20.20 Notes</string>
     <string name="patchnotes2019">Patch 20.19 Notes</string>
     <string name="patchnotes2018">Patch 20.18 Notes</string>
+
+    //Champions
+    <string name="ahri">Ahri</string>
+    <string name="aphelios">Aphelios</string>
+    <string name="bard">Bard</string>
+    <string name="braum">Braum</string>
+    <string name="draven">Draven</string>
+    <string name="graves">Graves</string>
+    <string name="jinx">Jinx</string>
+    <string name="lucian">Lucian</string>
+    <string name="olaf">Olaf</string>
+    <string name="rakan">Rakan</string>
+    <string name="sett">Sett</string>
+    <string name="sona">Sona</string>
+    <string name="syndra">Syndra</string>
+    <string name="thresh">Thresh</string>
+    <string name="vex">Vex</string>
+    <string name="xayah">Xayah</string>
+    <string name="yuumi">Yuumi</string>
+
+    //Ultimate bravery
+    <string name="ultimatebraveryButton">I am brave</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
